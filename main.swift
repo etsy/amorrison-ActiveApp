@@ -55,7 +55,7 @@ class AppTracker: NSObject {
             let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(&error)
             let active: String? = output.stringValue
             
-            if lastActive == nil || lastActive != active {
+            if lastActive == nil || lastActive?.prefix(64) != active?.prefix(64) {
                 if let activeUnwrapped = active {
                     print("\(date),\(activeUnwrapped)")
                 } else {
