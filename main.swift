@@ -48,7 +48,7 @@ class AppTracker: NSObject {
         """
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mmss"
         let date = dateFormatter.string(from: Date())
         var error: NSDictionary?
         if let scriptObject = NSAppleScript(source: script) {
@@ -103,7 +103,6 @@ class AppTracker: NSObject {
         let date = dateFormatter.string(from: Date())
         print("\(date),\(event)")
     }
-
 }
 
 // Main
