@@ -54,8 +54,8 @@ class AppTracker: NSObject {
         if let scriptObject = NSAppleScript(source: script) {
             let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(&error)
             let active: String? = output.stringValue
-            
-            if lastActive == nil || lastActive?.prefix(64) != active?.prefix(64) {
+
+            if lastActive == nil || lastActive != active {
                 if let activeUnwrapped = active {
                     print("\(date),\(activeUnwrapped)")
                 } else {
@@ -76,11 +76,11 @@ class AppTracker: NSObject {
     @objc func screenIsUnlocked(notification: Notification) {
         logEvent("screen unlocked")
     }
-    
+
     @objc func screensaverDidStart(notification: Notification) {
         logEvent("screensaver start")
     }
-    
+
     @objc func screensaverDidStop(notification: Notification) {
         logEvent("screensaver did stop")
     }
