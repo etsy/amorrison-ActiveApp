@@ -13,7 +13,7 @@ make
 Then, run it as follows.
 
 ```bash
-./activeApp | tee `whoami`.log
+./build/activeApp | tee `whoami`.log
 ```
 
 Once running you can just leave it alone and let it log which apps you're using, the window title and when the sample was collected.
